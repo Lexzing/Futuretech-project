@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us - Lexzing</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/" class="logo">
+    <img src="images/lexzing.jpg" alt="LEXZING Logo" />
+  </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="service.html">Service</a></li>
+        <li><a href="design.html">Design</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="contact-section">
+    <div class="contact-container">
+      <h1>Contact <span>Us</span></h1>
+      <p>Have questions or want to work with us? Fill the form below and we’ll respond as soon as possible.</p>
+      <form class="contact-form" action="https://formspree.io/f/mqabqadb" method="POST">
+          <input type="hidden" name="_subject" value="New message from Lexzing Contact Form" />
+          <input type="hidden" name="_redirect" value="https://yourdomain.com/contact.html?success=true" />
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+        <p style="color: gray; font-size: 14px;">You will be redirected after submission.</p>
+      </form>
+    </div>
+  </section>
+  <script>
+  const params = new URLSearchParams(window.location.search);
+  if (params.get("success") === "true") {
+    const message = document.createElement("p");
+    message.textContent = "✅ Message sent successfully!";
+    message.style.color = "lightgreen";
+    message.style.marginTop = "20px";
+    document.querySelector(".contact-form").appendChild(message);
+  }
+</script>
+
+  <footer>
+    <p>© 2025 Lexzing. All rights reserved.</p>
+  </footer>
+</body>
+</html>
